@@ -2,6 +2,13 @@
 
 > Repository ini dibuat untuk mata kuliah **Pemrograman Web Lanjutan** dengan fokus pada **MVC Pattern**, khususnya **Controller** dalam framework Laravel.
 
+## 📖 Informasi Mata Kuliah
+
+- **Mata Kuliah:** Pemrograman Web Lanjutan
+- **Kode Mata Kuliah:** TIF1203
+- **Total SKS:** 3
+- **Kelas:** C
+
 ## 🎯 Tujuan Pembelajaran
 
 Repository ini dirancang untuk membantu mahasiswa memahami:
