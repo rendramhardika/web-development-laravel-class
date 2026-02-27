@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebProgrammingController;
 use App\Http\Controllers\DataHandlingController;
+use App\Http\Controllers\FrontendController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,3 +44,12 @@ Route::get('/practice/analyze-request', [DataHandlingController::class, 'analyze
 // Mixed Methods Practice
 Route::get('/practice/complex-form', [DataHandlingController::class, 'complexFormForm'])->name('practice.complex.form');
 Route::post('/practice/forms/{formId}/submit', [DataHandlingController::class, 'complexFormHandling'])->name('practice.complex.submit');
+
+// Frontend Development Routes (Course 3)
+Route::get('/frontend/dashboard', [FrontendController::class, 'dashboard'])->name('frontend.dashboard');
+Route::get('/frontend/architecture', [FrontendController::class, 'architecture'])->name('frontend.architecture');
+Route::get('/frontend/blade-basic', [FrontendController::class, 'bladeBasic'])->name('frontend.blade-basic');
+Route::get('/frontend/layouts', [FrontendController::class, 'layouts'])->name('frontend.layouts');
+Route::get('/frontend/sections', [FrontendController::class, 'sections'])->name('frontend.sections');
+Route::get('/frontend/directives', [FrontendController::class, 'directives'])->name('frontend.directives');
+Route::get('/frontend/advanced', [FrontendController::class, 'advanced'])->name('frontend.advanced');

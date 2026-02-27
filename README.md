@@ -15,22 +15,33 @@ Repository ini dirancang untuk membantu mahasiswa memahami:
 ```
 laravel-web-programming/
 ├── app/Http/Controllers/
-│   ├── WebProgrammingController.php      # Materi dasar instalasi Laravel
-│   └── DataHandlingController.php        # Materi Controller-mvc
+│   ├── WebProgrammingController.php      # Course 1: Basic MVC
+│   ├── DataHandlingController.php        # Course 2: Controller-MVC
+│   └── FrontendController.php            # Course 3: Frontend Blade
 ├── resources/views/
-│   ├── web-programming.blade.php         # Halaman intro web programming
-│   ├── contact-form.blade.php           # Form kontak dasar
-│   ├── contact-success.blade.php        # Halaman sukses
-│   └── practice/                         # Folder praktik lanjutan
-│       ├── dashboard.blade.php           # Dashboard navigasi
-│       ├── query-*.blade.php             # Query parameter practice
-│       ├── path-*.blade.php              # Path variable practice
-│       ├── body-*.blade.php              # Request body practice
-│       ├── upload-*.blade.php            # File upload practice
-│       ├── headers-result.blade.php      # Headers & cookies analysis
-│       └── complex-*.blade.php           # Mixed methods practice
+│   ├── layouts/
+│   │   └── frontend.blade.php            # Main frontend layout
+│   ├── frontend/                          # Course 3 views
+│   │   ├── dashboard.blade.php           # Frontend dashboard
+│   │   ├── architecture.blade.php        # MVC architecture
+│   │   ├── blade-basic.blade.php         # Blade basics
+│   │   ├── layouts.blade.php             # Layout system
+│   │   ├── sections.blade.php            # Sections & components
+│   │   ├── directives.blade.php          # Blade directives
+│   │   └── advanced.blade.php            # Advanced features
+│   ├── practice/                          # Course 2 views
+│   │   ├── dashboard.blade.php           # Practice dashboard
+│   │   ├── query-*.blade.php             # Query parameter practice
+│   │   ├── path-*.blade.php              # Path variable practice
+│   │   ├── body-*.blade.php              # Request body practice
+│   │   ├── upload-*.blade.php            # File upload practice
+│   │   ├── headers-result.blade.php      # Headers & cookies
+│   │   └── complex-*.blade.php           # Mixed methods
+│   ├── web-programming.blade.php         # Course 1: Intro
+│   ├── contact-form.blade.php            # Course 1: Form
+│   └── contact-success.blade.php         # Course 1: Success
 └── routes/
-    └── web.php                            # Routes untuk semua fitur
+    └── web.php                            # All routes
 ```
 
 ## 📋 Materi 
@@ -184,6 +195,126 @@ laravel-web-programming/
 
 ---
 
+### 🟣 Course 3: `frontend-blade` - Laravel Blade Template Engine
+**Controller:** `FrontendController.php`
+
+**🎯 Fokus Pembelajaran:** View pada MVC. Blade templating engine untuk frontend development
+
+**📁 File yang Berkaitan:**
+- `app/Http/Controllers/FrontendController.php`
+- `resources/views/layouts/frontend.blade.php`
+- `resources/views/frontend/dashboard.blade.php`
+- `resources/views/frontend/architecture.blade.php`
+- `resources/views/frontend/blade-basic.blade.php`
+- `resources/views/frontend/layouts.blade.php`
+- `resources/views/frontend/sections.blade.php`
+- `resources/views/frontend/directives.blade.php`
+- `resources/views/frontend/advanced.blade.php`
+
+**🛣️ Routes:**
+- `GET /frontend/dashboard` - Dashboard navigasi frontend
+- `GET /frontend/architecture` - MVC Architecture overview
+- `GET /frontend/blade-basic` - Blade syntax basics
+- `GET /frontend/layouts` - Layout system & template inheritance
+- `GET /frontend/sections` - Sections & components
+- `GET /frontend/directives` - Blade directives & control structures
+- `GET /frontend/advanced` - Advanced Blade features
+
+**📚 Materi Detail:**
+
+#### **1. Frontend Dashboard**
+- **URL:** `http://localhost:8000/frontend/dashboard`
+- **View:** `dashboard.blade.php`
+- **Controller Method:** `dashboard()`
+- **Learning:** Central navigation untuk semua materi frontend
+- **Features:** Course overview, learning path, quick access links
+
+#### **2. MVC Architecture** 🏗️
+- **URL:** `http://localhost:8000/frontend/architecture`
+- **View:** `architecture.blade.php`
+- **Controller Method:** `architecture()`
+- **Learning:** Understanding MVC pattern, Laravel architecture
+- **Topics:** Model-View-Controller separation, data flow, best practices
+- **Features:** Visual diagrams, code examples, practical demonstrations
+
+#### **3. Blade Basic Syntax** 📝
+- **URL:** `http://localhost:8000/frontend/blade-basic`
+- **View:** `blade-basic.blade.php`
+- **Controller Method:** `bladeBasic()`
+- **Learning:** Blade templating fundamentals
+- **Topics:** 
+  - Variable display `{{ $variable }}`
+  - Escaped vs unescaped output
+  - Comments `{{-- comment --}}`
+  - PHP code blocks `@php @endphp`
+  - Raw PHP `<?php ?>`
+- **Features:** Live examples, syntax comparison, best practices
+
+#### **4. Layout System** 🎨
+- **URL:** `http://localhost:8000/frontend/layouts`
+- **View:** `layouts.blade.php`
+- **Controller Method:** `layouts()`
+- **Learning:** Template inheritance, reusable layouts
+- **Topics:**
+  - `@extends` - Inherit parent layout
+  - `@yield` - Define content sections
+  - `@section` / `@endsection` - Fill sections
+  - `@parent` - Include parent content
+  - Multiple layouts strategy
+- **Features:** Layout examples, section demonstrations, best practices
+
+#### **5. Sections & Components** 🧩
+- **URL:** `http://localhost:8000/frontend/sections`
+- **View:** `sections.blade.php`
+- **Controller Method:** `sections()`
+- **Learning:** Modular view organization
+- **Topics:**
+  - `@include` - Include partial views
+  - Component organization
+  - Data passing to includes
+  - Conditional includes (`@includeIf`, `@includeWhen`)
+  - View composers & global data sharing
+- **Features:** Component examples, folder structure, reusable patterns
+
+#### **6. Blade Directives** 🔀
+- **URL:** `http://localhost:8000/frontend/directives`
+- **View:** `directives.blade.php`
+- **Controller Method:** `directives()`
+- **Learning:** Control structures & loops
+- **Topics:**
+  - Conditionals: `@if`, `@elseif`, `@else`, `@unless`
+  - Loops: `@foreach`, `@for`, `@while`, `@forelse`
+  - Loop variables: `$loop->first`, `$loop->last`, `$loop->index`
+  - Switch statements: `@switch`, `@case`, `@break`, `@default`
+  - Empty checks: `@empty`, `@isset`
+- **Features:** Interactive demos, live output, loop variable examples
+
+#### **7. Advanced Blade Features** 🚀
+- **URL:** `http://localhost:8000/frontend/advanced`
+- **View:** `advanced.blade.php`
+- **Controller Method:** `advanced()`
+- **Learning:** Security & advanced techniques
+- **Topics:**
+  - Authentication: `@auth`, `@guest`
+  - Security: `@csrf`, `@method`
+  - Custom directives creation
+  - JavaScript integration with `@verbatim`
+  - JSON data passing to JavaScript
+  - Form handling best practices
+- **Features:** Security examples, custom directive demos, JS integration
+
+**🎯 Learning Outcomes Course 3:**
+- ✅ Master Blade templating syntax
+- ✅ Build reusable layout systems
+- ✅ Create modular components
+- ✅ Implement control structures
+- ✅ Handle authentication & security
+- ✅ Integrate JavaScript with Blade
+- ✅ Follow Blade best practices
+- ✅ Build maintainable frontend code
+
+---
+
 ## 🚀 Cara Menggunakan Repository
 
 ### Prerequisites
@@ -234,6 +365,19 @@ http://localhost:8000
    - 🔄 Mixed Methods Practice
 4. **Understand:** Complex controller logic
 5. **Master:** Security best practices dan advanced validation
+
+#### Step 3: Frontend Blade Templating (Course 3)
+1. **Access:** `http://localhost:8000/frontend/dashboard`
+2. **Learn:** Blade templating engine fundamentals
+3. **Practice:** Setiap materi frontend secara berurutan:
+   - 🏗️ MVC Architecture Overview
+   - 📝 Blade Basic Syntax
+   - 🎨 Layout System & Template Inheritance
+   - 🧩 Sections & Components
+   - 🔀 Blade Directives & Control Structures
+   - 🚀 Advanced Blade Features
+4. **Understand:** View layer dalam MVC pattern
+5. **Master:** Reusable layouts, components, dan best practices
 
 ---
 
@@ -309,6 +453,17 @@ Setelah mempelajari repository ini, mahasiswa diharapkan bisa:
 - Advanced error handling
 - Security best practices
 
+### ✅ Course 3: Frontend Blade Templating Competencies
+- Master Blade templating syntax
+- Build reusable layout systems
+- Create modular components
+- Implement control structures & loops
+- Handle authentication & security directives
+- Integrate JavaScript with Blade
+- Follow Blade best practices
+- Build maintainable frontend code
+- Understand View layer in MVC
+
 ### ✅ Professional Skills
 - Write clean, maintainable code
 - Implement security best practices
@@ -316,6 +471,8 @@ Setelah mempelajari repository ini, mahasiswa diharapkan bisa:
 - Build production-ready features
 - Design RESTful APIs
 - Handle complex form scenarios
+- Create reusable UI components
+- Optimize frontend performance
 
 ---
 
@@ -339,6 +496,18 @@ Setelah mempelajari repository ini, mahasiswa diharapkan bisa:
 | **File Upload** | `/practice/upload-form` | Single & multiple uploads |
 | **Headers Analysis** | `/practice/analyze-request` | HTTP headers & cookies |
 | **Complex Form** | `/practice/complex-form` | Mixed methods |
+
+### 🟣 Course 3: Frontend Blade Templating (FrontendController)
+
+| Feature | URL | Description |
+|---------|-----|-------------|
+| **Frontend Dashboard** | `/frontend/dashboard` | Navigasi utama materi frontend |
+| **MVC Architecture** | `/frontend/architecture` | Understanding MVC pattern |
+| **Blade Basic** | `/frontend/blade-basic` | Blade syntax fundamentals |
+| **Layout System** | `/frontend/layouts` | Template inheritance |
+| **Sections & Components** | `/frontend/sections` | Modular view organization |
+| **Blade Directives** | `/frontend/directives` | Control structures & loops |
+| **Advanced Features** | `/frontend/advanced` | Security & JS integration |
 
 ---
 
@@ -376,6 +545,18 @@ Repository ini untuk keperluan pendidikan mata kuliah Pemrograman Web Lanjutan.
 
 ## 🎉 Selamat Belajar!
 
-Repository ini adalah panduan lengkap untuk mempelajari **Controller pada MVC** dengan Laravel. Mulai dari dasar hingga advanced, semua materi sudah disusun secara sistematis untuk membantu Anda menguasai web development.
+Repository ini adalah panduan lengkap untuk mempelajari **Laravel MVC Pattern** dari dasar hingga advanced. Dengan 3 course yang sistematis:
+
+- **🟢 Course 1:** Basic MVC Pattern & Form Handling
+- **🔵 Course 2:** Advanced Controller & Input Handling  
+- **🟣 Course 3:** Frontend Blade Templating Engine
+
+Semua materi disusun secara bertahap untuk membantu Anda menguasai:
+- ✅ **Model-View-Controller Pattern**
+- ✅ **Controller Logic & Input Handling**
+- ✅ **Blade Templating & Frontend Development**
+- ✅ **Security Best Practices**
+- ✅ **Production-Ready Code**
 
 **Happy Coding! 🚀**
+
