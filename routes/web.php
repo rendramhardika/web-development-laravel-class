@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebProgrammingController;
 use App\Http\Controllers\DataHandlingController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\ModelController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -53,3 +54,17 @@ Route::get('/frontend/layouts', [FrontendController::class, 'layouts'])->name('f
 Route::get('/frontend/sections', [FrontendController::class, 'sections'])->name('frontend.sections');
 Route::get('/frontend/directives', [FrontendController::class, 'directives'])->name('frontend.directives');
 Route::get('/frontend/advanced', [FrontendController::class, 'advanced'])->name('frontend.advanced');
+
+// Model Practice Routes (Course 4)
+Route::prefix('model')->group(function () {
+    Route::get('/dashboard', [ModelController::class, 'dashboard'])->name('model.dashboard');
+    Route::get('/without-model', [ModelController::class, 'withoutModel'])->name('model.without-model');
+    Route::get('/business-logic', [ModelController::class, 'businessLogic'])->name('model.business-logic');
+    Route::get('/validation', [ModelController::class, 'validation'])->name('model.validation');
+    Route::post('/validation', [ModelController::class, 'processValidation'])->name('model.validation.process');
+    Route::get('/database-intro', [ModelController::class, 'databaseIntro'])->name('model.database-intro');
+    Route::get('/database-setup', [ModelController::class, 'databaseSetup'])->name('model.database-setup');
+    Route::get('/raw-query', [ModelController::class, 'rawQuery'])->name('model.raw-query');
+    Route::get('/query-builder', [ModelController::class, 'queryBuilder'])->name('model.query-builder');
+    Route::get('/eloquent-orm', [ModelController::class, 'eloquentOrm'])->name('model.eloquent-orm');
+});

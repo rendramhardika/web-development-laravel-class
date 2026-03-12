@@ -21,34 +21,57 @@ Repository ini dirancang untuk membantu mahasiswa memahami:
 
 ```
 laravel-web-programming/
-├── app/Http/Controllers/
-│   ├── WebProgrammingController.php      # Course 1: Basic MVC
-│   ├── DataHandlingController.php        # Course 2: Controller-MVC
-│   └── FrontendController.php            # Course 3: Frontend Blade
-├── resources/views/
-│   ├── layouts/
-│   │   └── frontend.blade.php            # Main frontend layout
-│   ├── frontend/                          # Course 3 views
-│   │   ├── dashboard.blade.php           # Frontend dashboard
-│   │   ├── architecture.blade.php        # MVC architecture
-│   │   ├── blade-basic.blade.php         # Blade basics
-│   │   ├── layouts.blade.php             # Layout system
-│   │   ├── sections.blade.php            # Sections & components
-│   │   ├── directives.blade.php          # Blade directives
-│   │   └── advanced.blade.php            # Advanced features
-│   ├── practice/                          # Course 2 views
-│   │   ├── dashboard.blade.php           # Practice dashboard
-│   │   ├── query-*.blade.php             # Query parameter practice
-│   │   ├── path-*.blade.php              # Path variable practice
-│   │   ├── body-*.blade.php              # Request body practice
-│   │   ├── upload-*.blade.php            # File upload practice
-│   │   ├── headers-result.blade.php      # Headers & cookies
-│   │   └── complex-*.blade.php           # Mixed methods
-│   ├── web-programming.blade.php         # Course 1: Intro
-│   ├── contact-form.blade.php            # Course 1: Form
-│   └── contact-success.blade.php         # Course 1: Success
+├── app/
+│   ├── Http/Controllers/
+│   │   ├── WebProgrammingController.php      # Course 1: Basic MVC
+│   │   ├── DataHandlingController.php        # Course 2: Controller-MVC
+│   │   ├── FrontendController.php            # Course 3: Frontend Blade
+│   │   └── ModelController.php               # Course 4: Model MVC
+│   └── Models/
+│       └── Product.php                       # Course 4: Product model
+├── database/
+│   ├── migrations/
+│   │   └── 2026_03_12_015941_create_products_table.php
+│   └── seeders/
+│       └── ProductSeeder.php                 # Course 4: Sample data
+├── resources/
+│   ├── views/
+│   │   ├── layouts/
+│   │   │   ├── frontend.blade.php            # Frontend layout
+│   │   │   └── model.blade.php               # Model course layout
+│   │   ├── model/                            # Course 4 views
+│   │   │   ├── dashboard.blade.php           # Model dashboard
+│   │   │   ├── without-model.blade.php       # Anti-pattern demo
+│   │   │   ├── business-logic.blade.php      # Business logic
+│   │   │   ├── validation.blade.php          # Validation
+│   │   │   ├── database-intro.blade.php      # DB intro
+│   │   │   ├── database-setup.blade.php      # DB setup
+│   │   │   ├── raw-query.blade.php           # Raw SQL
+│   │   │   ├── query-builder.blade.php       # Query Builder
+│   │   │   └── eloquent-orm.blade.php        # Eloquent ORM
+│   │   ├── frontend/                         # Course 3 views
+│   │   │   ├── dashboard.blade.php           # Frontend dashboard
+│   │   │   ├── architecture.blade.php        # MVC architecture
+│   │   │   ├── blade-basic.blade.php         # Blade basics
+│   │   │   ├── layouts.blade.php             # Layout system
+│   │   │   ├── sections.blade.php            # Sections & components
+│   │   │   ├── directives.blade.php          # Blade directives
+│   │   │   └── advanced.blade.php            # Advanced features
+│   │   ├── practice/                         # Course 2 views
+│   │   │   ├── dashboard.blade.php           # Practice dashboard
+│   │   │   ├── query-*.blade.php             # Query parameter practice
+│   │   │   ├── path-*.blade.php              # Path variable practice
+│   │   │   ├── body-*.blade.php              # Request body practice
+│   │   │   ├── upload-*.blade.php            # File upload practice
+│   │   │   ├── headers-result.blade.php      # Headers & cookies
+│   │   │   └── complex-*.blade.php           # Mixed methods
+│   │   ├── web-programming.blade.php         # Course 1: Intro
+│   │   ├── contact-form.blade.php            # Course 1: Form
+│   │   └── contact-success.blade.php         # Course 1: Success
+│   └── slides/
+│       └── model-mvc.md                      # Course 4: Slide materi
 └── routes/
-    └── web.php                            # All routes
+    └── web.php                               # All routes
 ```
 
 ## 📋 Materi 
@@ -322,6 +345,229 @@ laravel-web-programming/
 
 ---
 
+### 🟠 Course 4: `model-mvc` - Model pada Arsitektur MVC
+**Controller:** `ModelController.php`  
+**Model:** `Product.php`
+
+**🎯 Fokus Pembelajaran:** Model pada MVC. Database interaction, business logic, dan validation menggunakan Model
+
+**📁 File yang Berkaitan:**
+- `app/Http/Controllers/ModelController.php`
+- `app/Models/Product.php`
+- `database/migrations/2026_03_12_015941_create_products_table.php`
+- `database/seeders/ProductSeeder.php`
+- `resources/views/layouts/model.blade.php`
+- `resources/views/model/dashboard.blade.php`
+- `resources/views/model/without-model.blade.php`
+- `resources/views/model/business-logic.blade.php`
+- `resources/views/model/validation.blade.php`
+- `resources/views/model/database-intro.blade.php`
+- `resources/views/model/database-setup.blade.php`
+- `resources/views/model/raw-query.blade.php`
+- `resources/views/model/query-builder.blade.php`
+- `resources/views/model/eloquent-orm.blade.php`
+- `resources/slides/model-mvc.md`
+
+**🛣️ Routes:**
+- `GET /model/dashboard` - Dashboard navigasi Model MVC
+- `GET /model/without-model` - Controller tanpa Model (anti-pattern)
+- `GET /model/business-logic` - Model untuk business logic
+- `GET /model/validation` - Model untuk validation
+- `POST /model/validation` - Process validation
+- `GET /model/database-intro` - Overview database interaction
+- `GET /model/database-setup` - Database connection setup
+- `GET /model/raw-query` - Raw SQL queries
+- `GET /model/query-builder` - Query Builder API
+- `GET /model/eloquent-orm` - Eloquent ORM
+
+**📚 Materi Detail:**
+
+#### **1. Model MVC Dashboard**
+- **URL:** `http://localhost:8000/model/dashboard`
+- **View:** `dashboard.blade.php`
+- **Controller Method:** `dashboard()`
+- **Learning:** Central navigation untuk semua materi Model
+- **Features:** 8 topic cards, learning objectives, course overview
+
+#### **2. Controller Tanpa Model (Anti-Pattern)** ❌
+- **URL:** `http://localhost:8000/model/without-model`
+- **View:** `without-model.blade.php`
+- **Controller Method:** `withoutModel()`
+- **Learning:** Masalah ketika semua logic ada di controller
+- **Topics:**
+  - Fat Controller problem
+  - Code duplication
+  - Hard to test & maintain
+  - Violates Single Responsibility Principle
+  - Not reusable
+- **Features:** Live demo dengan hardcoded data, comparison table
+
+#### **3. Model untuk Business Logic** 💼
+- **URL:** `http://localhost:8000/model/business-logic`
+- **View:** `business-logic.blade.php`
+- **Controller Method:** `businessLogic()`
+- **Learning:** Memisahkan business logic ke Model
+- **Topics:**
+  - Price calculation methods
+  - Stock management methods
+  - Accessors & mutators
+  - Reusable business logic
+- **Model Methods:**
+  - `calculateDiscount($percentage)` - Calculate discounted price
+  - `getFormattedPriceAttribute()` - Format price to Rupiah
+  - `isInStock()` - Check stock availability
+  - `isLowStock($threshold)` - Low stock alert
+  - `canBePurchased($quantity)` - Purchase validation
+- **Features:** Live demo dengan Product model, method comparison
+
+#### **4. Model untuk Validasi** ✅
+- **URL:** `http://localhost:8000/model/validation`
+- **View:** `validation.blade.php`
+- **Controller Method:** `validation()`, `processValidation()`
+- **Learning:** Centralized validation menggunakan Model
+- **Topics:**
+  - Validation rules di Model
+  - Reusable validation
+  - Consistent validation across application
+  - Custom validation methods
+- **Model Methods:**
+  - `validationRules()` - Return validation rules array
+  - `validateProduct($data)` - Validate product data
+- **Validation Rules:**
+  - name: required, string, max:255
+  - description: nullable, string
+  - price: required, numeric, min:0
+  - stock: required, integer, min:0
+  - category: required, string, max:255
+  - is_active: boolean
+- **Features:** Interactive validation form, live validation demo
+
+#### **5. Intro Database Interaction** 🗄️
+- **URL:** `http://localhost:8000/model/database-intro`
+- **View:** `database-intro.blade.php`
+- **Controller Method:** `databaseIntro()`
+- **Learning:** Overview 3 cara berinteraksi dengan database
+- **Topics:**
+  - Raw Query (DB Facade) - Full control, best performance
+  - Query Builder - Safe, portable, fluent interface
+  - Eloquent ORM - Easy, feature-rich, Active Record
+- **Comparison:**
+  - Ease of Use: Raw ⭐⭐ | Builder ⭐⭐⭐⭐ | Eloquent ⭐⭐⭐⭐⭐
+  - Performance: Raw ⭐⭐⭐⭐⭐ | Builder ⭐⭐⭐⭐ | Eloquent ⭐⭐⭐
+  - Security: Raw ⭐⭐⭐ | Builder ⭐⭐⭐⭐⭐ | Eloquent ⭐⭐⭐⭐⭐
+  - Flexibility: Raw ⭐⭐⭐⭐⭐ | Builder ⭐⭐⭐⭐ | Eloquent ⭐⭐⭐
+- **Features:** Comparison table, use case recommendations
+
+#### **6. Setup Database Connection** ⚙️
+- **URL:** `http://localhost:8000/model/database-setup`
+- **View:** `database-setup.blade.php`
+- **Controller Method:** `databaseSetup()`
+- **Learning:** Konfigurasi koneksi database di Laravel
+- **Topics:**
+  - Environment configuration (.env)
+  - Database drivers (MySQL, PostgreSQL, SQLite, SQL Server)
+  - Migration basics
+  - Common connection errors & solutions
+- **Configuration:**
+  - DB_CONNECTION, DB_HOST, DB_PORT
+  - DB_DATABASE, DB_USERNAME, DB_PASSWORD
+- **Commands:**
+  - `php artisan migrate` - Run migrations
+  - `php artisan migrate:rollback` - Rollback
+  - `php artisan migrate:fresh` - Fresh migration
+  - `php artisan db:seed` - Seed database
+- **Features:** Live connection status, troubleshooting guide, best practices
+
+#### **7. Raw Query (DB Facade)** 📝
+- **URL:** `http://localhost:8000/model/raw-query`
+- **View:** `raw-query.blade.php`
+- **Controller Method:** `rawQuery()`
+- **Learning:** Database interaction dengan raw SQL
+- **Topics:**
+  - SELECT, INSERT, UPDATE, DELETE queries
+  - Parameter binding untuk security
+  - SQL injection prevention
+  - CRUD operations
+- **Syntax Examples:**
+  ```php
+  DB::select('SELECT * FROM products WHERE category = ?', ['Electronics']);
+  DB::insert('INSERT INTO products (name, price) VALUES (?, ?)', ['Product', 100000]);
+  DB::update('UPDATE products SET stock = ? WHERE id = ?', [100, 1]);
+  DB::delete('DELETE FROM products WHERE id = ?', [1]);
+  ```
+- **Security:** Always use parameter binding, never concatenate user input
+- **Features:** Live query demos, security comparison, pros & cons
+
+#### **8. Query Builder** 🔧
+- **URL:** `http://localhost:8000/model/query-builder`
+- **View:** `query-builder.blade.php`
+- **Controller Method:** `queryBuilder()`
+- **Learning:** Fluent interface Query Builder API
+- **Topics:**
+  - Method chaining
+  - SELECT, WHERE, ORDER BY, LIMIT
+  - Aggregate functions
+  - Dynamic query building
+- **Common Methods:**
+  - SELECT: `get()`, `first()`, `find()`, `count()`
+  - WHERE: `where()`, `orWhere()`, `whereBetween()`, `whereIn()`
+  - AGGREGATE: `count()`, `max()`, `min()`, `avg()`, `sum()`
+  - ORDERING: `orderBy()`, `latest()`, `oldest()`, `limit()`
+- **Syntax Examples:**
+  ```php
+  DB::table('products')->where('category', 'Electronics')->get();
+  DB::table('products')->orderBy('price', 'desc')->limit(10)->get();
+  DB::table('products')->select('category', DB::raw('COUNT(*) as total'))->groupBy('category')->get();
+  ```
+- **Features:** Live demos, method reference, chaining examples
+
+#### **9. Eloquent ORM** 🚀
+- **URL:** `http://localhost:8000/model/eloquent-orm`
+- **View:** `eloquent-orm.blade.php`
+- **Controller Method:** `eloquentOrm()`
+- **Learning:** Object-Relational Mapping dengan Active Record
+- **Topics:**
+  - Query scopes
+  - Accessors & mutators
+  - Model events
+  - Relationships
+  - CRUD operations
+- **Query Scopes:**
+  - `scopeActive($query)` - Filter active products
+  - `scopeInStock($query)` - Filter in-stock products
+  - `scopeByCategory($query, $category)` - Filter by category
+  - `scopeLowStock($query, $threshold)` - Low stock alert
+- **Accessors:**
+  - `getFormattedPriceAttribute()` - Auto-format price
+- **CRUD Examples:**
+  ```php
+  Product::all(); // Get all
+  Product::find(1); // Find by ID
+  Product::where('category', 'Electronics')->get(); // Filter
+  Product::create([...]); // Create
+  $product->update([...]); // Update
+  $product->delete(); // Delete
+  ```
+- **Features:** Live demos with scopes, CRUD examples, best practices
+
+**🎯 Learning Outcomes Course 4:**
+- ✅ Memahami peran Model dalam MVC pattern
+- ✅ Membedakan controller dengan dan tanpa model
+- ✅ Mengimplementasikan business logic di Model
+- ✅ Menerapkan validation di Model
+- ✅ Memahami 3 cara database interaction
+- ✅ Setup dan troubleshoot database connection
+- ✅ Menggunakan Raw Query dengan parameter binding
+- ✅ Menggunakan Query Builder dengan method chaining
+- ✅ Menggunakan Eloquent ORM dengan fitur lengkap
+- ✅ Memilih metode yang tepat untuk kasus berbeda
+- ✅ Menerapkan best practices dalam Model development
+- ✅ Menghindari N+1 query problem
+- ✅ Implement query scopes dan accessors
+- ✅ Handle relationships antar models
+
+---
+
 ## 🚀 Cara Menggunakan Repository
 
 ### Prerequisites
@@ -385,6 +631,21 @@ http://localhost:8000
    - 🚀 Advanced Blade Features
 4. **Understand:** View layer dalam MVC pattern
 5. **Master:** Reusable layouts, components, dan best practices
+
+#### Step 4: Model pada Arsitektur MVC (Course 4)
+1. **Access:** `http://localhost:8000/model/dashboard`
+2. **Learn:** Model layer, business logic, dan database interaction
+3. **Practice:** Setiap materi Model secara berurutan:
+   - ❌ Controller Tanpa Model (Anti-Pattern)
+   - 💼 Model untuk Business Logic
+   - ✅ Model untuk Validasi
+   - 🗄️ Intro Database Interaction
+   - ⚙️ Setup Database Connection
+   - 📝 Raw Query (DB Facade)
+   - 🔧 Query Builder
+   - 🚀 Eloquent ORM
+4. **Understand:** Model layer dalam MVC pattern
+5. **Master:** Business logic, validation, database interaction, dan best practices
 
 ---
 
@@ -471,6 +732,22 @@ Setelah mempelajari repository ini, mahasiswa diharapkan bisa:
 - Build maintainable frontend code
 - Understand View layer in MVC
 
+### ✅ Course 4: Model MVC Competencies
+- Memahami peran Model dalam MVC pattern
+- Membedakan controller dengan dan tanpa model
+- Mengimplementasikan business logic di Model
+- Menerapkan centralized validation
+- Memahami 3 cara database interaction (Raw Query, Query Builder, Eloquent)
+- Setup dan troubleshoot database connection
+- Menggunakan Raw Query dengan parameter binding untuk security
+- Menggunakan Query Builder dengan method chaining
+- Menggunakan Eloquent ORM dengan query scopes dan accessors
+- Memilih metode database interaction yang tepat
+- Menerapkan best practices dalam Model development
+- Menghindari N+1 query problem dengan eager loading
+- Implement reusable business logic methods
+- Handle model relationships
+
 ### ✅ Professional Skills
 - Write clean, maintainable code
 - Implement security best practices
@@ -516,6 +793,20 @@ Setelah mempelajari repository ini, mahasiswa diharapkan bisa:
 | **Blade Directives** | `/frontend/directives` | Control structures & loops |
 | **Advanced Features** | `/frontend/advanced` | Security & JS integration |
 
+### 🟠 Course 4: Model MVC (ModelController)
+
+| Feature | URL | Description |
+|---------|-----|-------------|
+| **Model Dashboard** | `/model/dashboard` | Navigasi utama materi Model |
+| **Without Model** | `/model/without-model` | Anti-pattern demonstration |
+| **Business Logic** | `/model/business-logic` | Model business logic methods |
+| **Validation** | `/model/validation` | Centralized validation |
+| **Database Intro** | `/model/database-intro` | 3 cara database interaction |
+| **Database Setup** | `/model/database-setup` | Database configuration |
+| **Raw Query** | `/model/raw-query` | Raw SQL dengan DB Facade |
+| **Query Builder** | `/model/query-builder` | Fluent interface API |
+| **Eloquent ORM** | `/model/eloquent-orm` | Active Record pattern |
+
 ---
 
 ## 🤝 Contributing
@@ -552,17 +843,20 @@ Repository ini untuk keperluan pendidikan mata kuliah Pemrograman Web Lanjutan.
 
 ## 🎉 Selamat Belajar!
 
-Repository ini adalah panduan lengkap untuk mempelajari **Laravel MVC Pattern** dari dasar hingga advanced. Dengan 3 course yang sistematis:
+Repository ini adalah panduan lengkap untuk mempelajari **Laravel MVC Pattern** dari dasar hingga advanced. Dengan 4 course yang sistematis:
 
 - **🟢 Course 1:** Basic MVC Pattern & Form Handling
 - **🔵 Course 2:** Advanced Controller & Input Handling  
 - **🟣 Course 3:** Frontend Blade Templating Engine
+- **🟠 Course 4:** Model pada Arsitektur MVC & Database Interaction
 
 Semua materi disusun secara bertahap untuk membantu Anda menguasai:
 - ✅ **Model-View-Controller Pattern**
 - ✅ **Controller Logic & Input Handling**
 - ✅ **Blade Templating & Frontend Development**
-- ✅ **Security Best Practices**
+- ✅ **Model Layer & Business Logic**
+- ✅ **Database Interaction (Raw Query, Query Builder, Eloquent ORM)**
+- ✅ **Validation & Security Best Practices**
 - ✅ **Production-Ready Code**
 
 **Happy Coding! 🚀**
